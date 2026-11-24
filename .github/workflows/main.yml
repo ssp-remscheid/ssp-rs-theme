@@ -1,0 +1,17 @@
+name: Trigger Website Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger website repo
+        run: |
+          curl -X POST \
+            -L "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.WEBSITE_TRIGGER_TOKEN }}" \
+            https://api.github.com/repos/ssp-rs/ssp-rs-website/dispatches \
+            -d '{"event_type": "theme-updated"}'
