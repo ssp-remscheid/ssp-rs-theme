@@ -1,0 +1,20 @@
+{{/* partial "menu.html" (dict "menuID" "main" "page" .) */}}
+
+<a class="navbar-brand" href="#">SSP Remscheid</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menü öffnen">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+<ul class="navbar-nav ml-auto">
+    <li class="nav-item active">
+    <a class="nav-link" href="/">Startseite</a>
+    </li>
+
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:vorstand@ssp-rs.de">Kontakt</a>
+    </li>
+</ul>
+</div>

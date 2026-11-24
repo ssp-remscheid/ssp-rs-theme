@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<div class="satzung">
+
+    <div class="satzung-header">
+        <h1>{{ .Title }}</h1>
+    </div>
+     
+  {{ if .Params.toc | default true }}
+    <div class="toc-wrapper mb-4">
+        <button class="btn-light btn d-flex justify-content-between align-items-center w-100" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#collapseToC" 
+                aria-expanded="false" 
+                aria-controls="collapseToC"
+                style="font-weight: bold; ">
+            <span>Inhaltsverzeichnis</span>
+            <span class="dropdown-toggle"></span>
+        </button>
+
+        <div class="collapse show" id="collapseToC">
+            <div class="card card-body mt-2 breadcrumb" style="border-color: #cef4be; background-color: #fdfdfd;">
+                <nav id="TableOfContents">
+                    {{ .TableOfContents }}
+                </nav>
+            </div>
+        </div>
+    </div>
+  {{ end }}
+
+    <div class="satzung-content">
+        {{ .Content }}
+    </div>
+
+</div>
+
+{{ end }}

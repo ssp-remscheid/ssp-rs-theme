@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover table-bordered" 
+    {{- range $k, $v := .Attributes -}}
+      {{- printf " %s=%q" $k $v | safeHTMLAttr -}}
+    {{- end -}}>
+    <thead>
+      {{- range .THead -}}
+        <tr>
+          {{- range . -}}
+            <th{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>
+              {{- .Text | safeHTML -}}
+            </th>
+          {{- end -}}
+        </tr>
+      {{- end -}}
+    </thead>
+    <tbody>
+      {{- range .TBody -}}
+        <tr>
+          {{- range . -}}
+            <td{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>
+              {{- .Text | safeHTML -}}
+            </td>
+          {{- end -}}
+        </tr>
+      {{- end -}}
+    </tbody>
+  </table>
+</div>

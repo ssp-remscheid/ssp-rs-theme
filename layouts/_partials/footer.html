@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-6">
+        <p class="mb-0"><strong>{{ .Site.Params.impressum1 }}</strong><br>
+        {{ .Site.Params.impressum5 }}</p>
+        <p>Copyright {{ now.Year }}. All rights reserved.</p>
+    </div>
+    <div class="col-md-6 text-md-end text-right mt-3 mt-md-0">
+        <div class="mb-3">
+            {{ range .Site.Params.social_links }}
+                <a href="{{ .url }}" 
+                class="text-muted me-3 fs-4" 
+                target="_blank" 
+                rel="noopener" 
+                aria-label="{{ .name }}">
+                <i class="bi {{ .icon }}"></i>
+                </a>
+            {{ end }}
+        </div>
+
+        <div class="pt-2 border-top border-md-0">
+            {{ if .Site.Menus.footer }} 
+                {{ range .Site.Menus.footer }} 
+                        <a href="{{ .URL | relURL }}" class="text-muted text-decoration-none me-3 small text-uppercase">{{ .Name }}</a>
+                {{ end }} 
+            {{ end }}
+        </div>
+    </div>
+</div>

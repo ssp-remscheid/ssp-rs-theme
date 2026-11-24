@@ -1,0 +1,33 @@
+{{ define "main" }}
+  {{ partial "breadcrumb.html" . }}
+  <article class="section-page">
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+
+    <section class="children-grid">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Kommune</th>
+            <th>Stadtschulpflegschaft</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range .Params.mitglieder }}
+            <tr>
+            <td>{{ .kommune }}</td>
+            <td>
+                {{ if .Website }}
+                <a href="{{ .Website }}" target="_blank">{{ .SSP }}</a>
+                {{ else }}
+                    {{ .SSP }}
+                {{ end }}
+            </td>
+            </tr>
+            {{ end }}
+        </tbody>
+        </table>
+    </section>
+    
+  </article>
+{{ end }}
